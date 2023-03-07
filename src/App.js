@@ -18,9 +18,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.state.mood}</h1>
-        <button onClick={this.handleClick}>Change Mood</button>
+        <div>
+          <Emoji symbol={this.state.mood} label="mood" />
+          <button onClick={this.handleClick}>Change Mood</button>
+        </div>
+
+        <br />
+        <div>
+          <Calculator />
+        </div>
       </div>
     );
   }
 }
+
+export default App;

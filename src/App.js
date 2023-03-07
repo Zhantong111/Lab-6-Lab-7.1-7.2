@@ -1,35 +1,37 @@
 import React from "react";
+import Emoji from "./Emoji";
+import Calculator from "../Calculator";
+import Clock from "./Clock";
 
 const love = "😘";
 const angry = "😡";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { mood: love };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const App = () => {
+  const [mood, setMood] = Use.State(love);
 
-  handleClick() {
-    const newMood = this.state.mood === love ? angry : love;
-    this.setState({ mood: newMood });
-  }
+  const handleClick = () => {
+    const newMood = mood === love ? angry : love;
+    setMood(newMood);
+  };
+};
 
-  render() {
-    return (
-      <div>
-        <div>
-          <Emoji symbol={this.state.mood} label="mood" />
-          <button onClick={this.handleClick}>Change Mood</button>
-        </div>
+render(
+  <div>
+    <div>
+      <Emoji symbol={this.state.mood} label="mood" />
+      <button onClick={this.handleClick}>Change Mood</button>
+    </div>
 
-        <br />
-        <div>
-          <Calculator />
-        </div>
-      </div>
-    );
-  }
-}
+    <br />
+    <div>
+      <Calculator />
+    </div>
+    <br />
+
+    <div>
+      <Clock />
+    </div>
+  </div>
+);
 
 export default App;
